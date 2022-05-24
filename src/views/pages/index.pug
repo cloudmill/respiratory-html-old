@@ -1,0 +1,21 @@
+extends ../app
+
+block header
+block footer
+
+block content
+  .indent.indent--page--index
+    .container
+      ul
+        each route in data.routes.slice(0, -1)
+          li.indent__item
+            .btn
+              a.btn__link.btn__link--variant--default.btn__link--variant--text(href=route.path)
+                .btn__text
+                  |#{route.title}
+        - var lastRoute = data.routes.slice(-1)[0]
+        li.indent__item.indent__item--large
+          .btn
+            a.btn__link.btn__link--variant--default.btn__link--variant--dark.btn__link--variant--text(href=lastRoute.path)
+              .btn__text
+                |#{lastRoute.title}

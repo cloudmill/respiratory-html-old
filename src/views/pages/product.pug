@@ -1,0 +1,283 @@
+extends ../app
+
+mixin venams-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='23' height='17' viewBox='0 0 23 17' fill='none')
+    path(d='M8.31822 0.874897L3.70343 5.48969C2.14133 7.05178 2.14133 9.58444 3.70343 11.1465L8.31822 15.7613' stroke='white' stroke-width='1.5')
+    line(x1='5.875' y1='8.12476' x2='22.875' y2='8.12476' stroke='white' stroke-width='1.5')
+
+mixin dbwgve-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none')
+    path(d='M6.0019 1.41513H12.5282C14.7373 1.41513 16.5282 3.20599 16.5282 5.41513V11.9414' stroke='white' stroke-width='1.5')
+    line(y1='-0.75' x2='17' y2='-0.75' transform='matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34427)' stroke='white' stroke-width='1.5')
+
+mixin lbiuaj-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='30' height='37' viewBox='0 0 30 37' fill='none')
+    mask#path-1-inside-1_549_1313(fill='white')
+      path(d='M26 0H4C1.79086 0 0 1.79086 0 4V32.8571C0 35.0663 1.79086 36.8571 4 36.8571H19.3709C21.5105 36.8571 23.5608 36.0001 25.064 34.4776L27.693 31.8145C29.1712 30.3173 30 28.2981 30 26.1941V4C30 1.79086 28.2091 0 26 0Z')
+    path(d='M25.064 34.4776L23.9965 33.4237V33.4237L25.064 34.4776ZM27.693 31.8145L28.7605 32.8684V32.8684L27.693 31.8145ZM4 1.5H26V-1.5H4V1.5ZM1.5 32.8571V4H-1.5V32.8571H1.5ZM28.5 4V26.1941H31.5V4H28.5ZM19.3709 35.3571H4V38.3571H19.3709V35.3571ZM26.1314 35.5314L28.7605 32.8684L26.6256 30.7607L23.9965 33.4237L26.1314 35.5314ZM19.3709 38.3571C21.9116 38.3571 24.3464 37.3394 26.1314 35.5314L23.9965 33.4237C22.7752 34.6608 21.1093 35.3571 19.3709 35.3571V38.3571ZM28.5 26.1941C28.5 27.9036 27.8266 29.5442 26.6256 30.7607L28.7605 32.8684C30.5158 31.0904 31.5 28.6925 31.5 26.1941H28.5ZM-1.5 32.8571C-1.5 35.8947 0.962426 38.3571 4 38.3571V35.3571C2.61929 35.3571 1.5 34.2379 1.5 32.8571H-1.5ZM26 1.5C27.3807 1.5 28.5 2.61929 28.5 4H31.5C31.5 0.962434 29.0376 -1.5 26 -1.5V1.5ZM4 -1.5C0.962437 -1.5 -1.5 0.962427 -1.5 4H1.5C1.5 2.61929 2.61929 1.5 4 1.5V-1.5Z' fill='#2967EB' mask='url(#path-1-inside-1_549_1313)')
+    path(d='M22.7142 27.3214H29.1428V25.8214H22.7142V27.3214ZM20.4642 36V29.5714H18.9642V36H20.4642ZM22.7142 25.8214C20.6432 25.8214 18.9642 27.5004 18.9642 29.5714H20.4642C20.4642 28.3288 21.4716 27.3214 22.7142 27.3214V25.8214Z' fill='#2967EB')
+
+
+block content
+  .container
+    .row.row--half
+      .row__col
+        .gap.gap--small
+        
+        .wall
+          .wall__list
+            -
+              var items = [
+                'Главная',
+                'АЛИНА®',
+                'АЛИНА®-100',
+              ]
+            each item, index in items
+              if index < items.length - 1
+                .wall__item
+                  .badge
+                    a.badge__link.badge__link--variant--breadcrumb(href="#")
+                      |#{item}
+              else
+                .wall__item
+                  .badge
+                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
+                      |#{item}
+        
+        .nvmuyk
+          .elfadi
+            .elfadi__back
+              a.ommfre(href="#")
+                +venams-svg.ommfre__svg
+            .elfadi__title
+              h1.bbapqc
+                |АЛИНА®-100
+        
+        .avbkdm
+          h2.pfwgww
+            |Класс защиты
+          
+        .kzgrca
+          .ndxzhy
+            - for (let i = 0; i < 3; i++)
+              .ndxzhy__place
+                .fcpzms.fcpzms--ysocmh
+                  .fcpzms__title
+                    |FFP1
+                  .fcpzms__text
+                    |Предельно допустимая концентрация до 4
+          
+        .ravxnv
+          .ndxzhy
+            - for (let i = 0; i < 2; i++)
+              .ndxzhy__place
+                .izboxg.izboxg--zsdtwh
+                  img.izboxg__img(src="assets/images/svg/feature-2.svg")
+                  .izboxg__content
+                    .izboxg__property
+                      |Клапан выдоха
+                    .izboxg__value
+                      |Есть
+        
+        .ravxnv
+          .onipfv
+            img.onipfv__img(src="assets/images/svg/feature-3.svg")
+            .onipfv__text
+              |Защита от всех видов аэрозолей
+
+        .ravxnv 
+          h2.pfwgww
+            |Документы
+          .kzgrca
+            .lhqxmb
+              .lhqxmb__list
+                - for (let i = 0; i < 15; i++)
+                  .lhqxmb__item
+                    .dqnoxb
+                      a.dqnoxb__button(href="#")
+                        |ГОСТ 12.4.294-2015 #{i * i}
+            
+        .ravxnv 
+          h2.pfwgww
+            |Дополнительная защита
+          .kzgrca
+            .lhqxmb
+              .lhqxmb__list
+                - for (let i = 0; i < 15; i++)
+                  .lhqxmb__item
+                    .dqnoxb
+                      a.dqnoxb__button(href="#")
+                        |ГОСТ 12.4.294-2015 #{i * i}
+        
+        .ravxnv    
+          .ndxzhy
+            - for (let i = 0; i < 3; i++)
+              .ndxzhy__place
+                .ulbfcv
+                  .ulbfcv__property
+                    |Упаковка
+                  .ulbfcv__value
+                    |Индивидуальная
+        
+        .ravxnv
+          h2.pfwgww
+            |Описание
+        
+        .kzgrca
+          p.yhontr
+            |Алина-210 – фильтрующее средство индивидуальной защиты органов дыхания одноразового применения с клапаном выдоха. Класс защиты FFP2.
+          p.yhontr
+            |Благодаря неформованной конструкции и эластичному фильтрующему контуру респиратор адаптируется к любому типу и размеру лица, не смещается и не допускает проникновения загрязненного воздуха по полосе прилегания при мимических движениях и поворотах головы.
+          p.yhontr
+            |Регулируемые ленты оголовья и гибкая носовая пластина помогают индивидуально настраивать посадку респиратора. Клапан выдоха выводит тепло и влагу из подмасочного пространства, делая использование респиратора более комфортным.
+
+        .ravxnv 
+          h2.pfwgww
+            |Применение
+          
+        .kzgrca
+          p.yhontr
+            |Алина-210 – фильтрующее средство индивидуальной защиты органов дыхания одноразового применения с клапаном выдоха. Класс защиты FFP2.
+          p.yhontr
+            |Благодаря неформованной конструкции и эластичному фильтрующему контуру респиратор адаптируется к любому типу и размеру лица, не смещается и не допускает проникновения загрязненного воздуха по полосе прилегания при мимических движениях и поворотах головы.
+          p.yhontr
+            |Регулируемые ленты оголовья и гибкая носовая пластина помогают индивидуально настраивать посадку респиратора. Клапан выдоха выводит тепло и влагу из подмасочного пространства, делая использование респиратора более комфортным.
+
+        .ravxnv 
+          .syirtg
+            .syirtg__image
+              img.syirtg__img(src="assets/images/slide-1.jpg")
+              .syirtg__label
+                .ommfre.ommfre--iifmew
+                  +dbwgve-svg.ommfre__svg
+            .syirtg__content
+              .syirtg__row
+                .syirtg__col
+                  .syirtg__progress
+                    .syirtg__current
+                      |29
+                    .syirtg__all
+                      |/11
+                .syirtg__col
+                  .dqnoxb
+                    a.dqnoxb__button(href="#")
+                      |Статьи
+              .syirtg__title
+                |Как правильно использовать респиратор
+        
+        .ravxnv
+          h2.pfwgww
+            |Документация
+          
+        .kzgrca
+          .ndxzhy.ndxzhy--zoxaue
+            - for (let i = 0; i < 5; i++)
+              .ndxzhy__place
+                a.gmjvle(href="#")
+                  .gmjvle__title
+                    |Сертификат ТР ТС 019/2011
+                  .gmjvle__weight
+                    |235 КБ
+                  +lbiuaj-svg.gmjvle__svg
+        
+      .row__col
+        .rails
+          .rails__train(data-rails)
+            .aside.aside--gallery(data-aside)
+              .gallery
+                .gallery__place
+                  .masks
+                    -
+                      var paginationSrcList = [
+                        "assets/images/tile-1.jpg",
+                        "assets/images/tile-2.jpg",
+                        "assets/images/tile-3.jpg",
+                        "assets/images/tile-1.jpg",
+                        "assets/images/tile-2.jpg",
+                      ]
+                      var paginationSrcJSON = JSON.stringify(paginationSrcList)
+                    .swiper(data-masks data-masks-pagination=paginationSrcJSON)
+                      .swiper-wrapper
+                        - for (var i = 0; i < paginationSrcList.length; i++)
+                          .swiper-slide.masks__image
+                            img.masks__img(src="assets/images/masks-1.jpg" data-gallery=i)
+                      .masks__bullets
+                        .masks__bullets-list
+                      .masks__prev
+                        .button.button--small(data-masks-prev)
+                          +phone-svg.button__svg
+                      .masks__next
+                        .button.button--small.button--right(data-masks-next)
+                          +phone-svg.button__svg
+                .gallery__place
+                  .gallery__image
+                    img.gallery__img(src="assets/images/masks-2.jpg" data-gallery=paginationSrcList.length)
+                .gallery__place
+                  .gallery__image
+                    img.gallery__img(src="assets/images/masks-3.jpg" data-gallery=(paginationSrcList.length + 1))
+  .panel.panel--sticky(data-panel)
+    .container
+      .row.row--panel
+        -
+          var items = [
+            'КУПИТЬ У ОфициальнЫХ диллерОВ',
+            'КУПИТЬ В розничныХ магазинАХ',
+            'Самостоятельно сформировать заказ',
+          ]
+        each item in items
+          .row__col
+            +button-link.button-link--theme--color.button-link--fluid.button-link--in-panel
+              |#{item}     
+  .container
+    .ravxnv
+      .baxwyj
+        .baxwyj__col
+          h2.pfwgww
+            |аналоги
+        .baxwyj__col
+          .amaqvj
+            .amaqvj__col
+              .ommfre.ommfre--rxljso(data-usgkhj-prev)
+                +venams-svg.ommfre__svg
+            .amaqvj__col
+              .ommfre.ommfre--rtluns.ommfre--rxljso(data-usgkhj-next)
+                +venams-svg.ommfre__svg
+    
+  .nvmuyk
+    .usgkhj.swiper(data-usgkhj)
+      .swiper-wrapper
+        - for (let i = 0; i < 3; i++)
+          .yzunuk.swiper-slide
+            img.yzunuk__img(src="assets/images/photo.jpg")
+            .yzunuk__content
+              .yzunuk__title
+                |RK 9000
+              .yzunuk__props
+                - for (let j = 0; j < 2; j++)
+                  .yzunuk__prop
+                    .yzunuk__prop-title
+                      |Класс защиты
+                    .yzunuk__prop-value
+                      |FFP1 NR D
+              .yzunuk__feature
+                .onipfv.onipfv--wkdqck
+                  img.onipfv__img(src="assets/images/svg/feature-3.svg")
+                  .onipfv__text
+                    |Защита от всех видов аэрозолей
+              .yzunuk__sub-title
+                |Дополнительная защита
+              .yzunuk__tags
+                .lhqxmb
+                  .lhqxmb__list
+                    -
+                      var items = [
+                        'Кислые газы',
+                        'Неорганические газы',
+                        'Основные газы',
+                        'Пары ртути',
+                      ]
+                    each item in items
+                      .lhqxmb__item
+                        .dqnoxb
+                          a.dqnoxb__button(href="#")
+                            |#{item}

@@ -1,0 +1,243 @@
+// первый экран
+.brn {
+  position: relative;
+  z-index: 0;
+
+  padding: getRem(40px) 0 getRem(10px + 120px) 0;
+  height: getRem(895px);
+
+  &__bg {
+    @include inset(0);
+    @include getSize(100%);
+
+    position: absolute;
+    z-index: -1;
+
+    object-fit: cover;
+  }
+
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include font(3);
+
+    font-size: getRem(130px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-yellow);
+  }
+}
+
+// второй экрна
+.taq {
+  margin-top: getRem(-120px);
+  padding-top: getRem(180px);
+  overflow: hidden;
+
+  border-radius: 0 getRem(120px) 0 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{getCols(6)}));
+    column-gap: $gap;
+    align-items: start;
+  }
+
+  &__col {
+    &:nth-child(1) {
+      position: relative;
+      z-index: 1;
+
+      padding-bottom: getRem(16px);
+    }
+
+    &:nth-child(2) {
+      position: relative;
+      z-index: 0;
+
+      padding-bottom: getRem(56px);
+
+      &::before {
+        position: absolute;
+        z-index: -1;
+
+        top: -100vh;
+        left: -100vw;
+        right: -100vw;
+        bottom: 0;
+        content: "";
+        pointer-events: none;
+
+        background-color: var(--color-blue);
+      }
+    }
+  }
+
+  &__img {
+    @include getSize(calc(#{getCols(4)}), getRem(720px));
+
+    display: block;
+    object-fit: cover;
+
+    border-radius: 0px getRem(12px) getRem(80px) 0px;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 0;
+
+    padding-top: getRem(290px);
+
+    &::before,
+    &::after {
+      @include getSize(getRem(20px));
+
+      position: absolute;
+      top: 0;
+
+      content: "";
+
+      border: 2px solid var(--color-white);
+      border-bottom: none;
+    }
+
+    &::before {
+      left: 0;
+
+      border-right: none;
+      border-radius: getRem(10px) 0 0 0;
+    }
+
+    &::after {
+      right: 0;
+
+      border-left: none;
+      border-radius: 0 getRem(10px) 0 0;
+    }
+  }
+
+  &__title {
+    @include font(3);
+
+    font-size: getRem(130px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-yellow);
+  }
+
+  &__text {
+    @include font(2);
+
+    margin-top: getRem(20px);
+    max-width: calc(#{getCols(4)});
+
+    font-size: getRem(18px);
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+}
+
+// 3 и 5 экран
+.kpu {
+  padding-top: getRem(16px);
+  padding-left: calc(#{getCols(6)} + #{$gap});
+
+  border-top: 1px solid var(--color-gray-2);
+
+  &--second {
+    margin-top: getRem(180px);
+    padding-left: 0;
+  }
+
+  &__text {
+    @include font(4);
+
+    margin-top: getRem(32px);
+    max-width: calc(#{getCols(4)});
+
+    font-size: getRem(20px);
+    line-height: 1.3;
+  }
+
+  &__title {
+    @include font(2);
+
+    font-size: getRem(18px);
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  &__cards {
+    margin-top: getRem(96px);
+    display: grid;
+    grid-template-columns: repeat(3, calc(#{getCols(4)}));
+    column-gap: $gap;
+  }
+
+  &__card {
+    padding: getRem(20px);
+    height: 100%;
+    min-height: getRem(234px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid var(--color-gray-2);
+    border-radius: 0px getRem(12px) getRem(12px) getRem(12px);
+
+    &-title {
+      @include font(3);
+
+      font-size: getRem(84px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--color-blue);
+    }
+
+    &-text {
+      @include font(4);
+
+      font-size: getRem(16px);
+      line-height: 1.3;
+      text-align: right;
+    }
+  }
+}
+
+// 6 экран
+.ywn {
+  position: relative;
+  z-index: 0;
+
+  margin-top: getRem(180px);
+  overflow: hidden;
+  
+  border-radius: 0px 0px getRem(100px) 0px;
+
+  &__slider {
+    height: getRem(960px);
+    display: block;
+
+    border-radius: 0px 0px getRem(100px) 0px;
+  }
+
+  &__controls {
+    position: absolute;
+    top: getRem(40px);
+    left: getRem(40px);
+
+    padding: getRem(40px);
+    width: calc(#{getCols(3)});
+    display: flex;
+    justify-content: space-between;
+
+    background: var(--color-white);
+    border-radius: getRem(30px);
+  }
+}

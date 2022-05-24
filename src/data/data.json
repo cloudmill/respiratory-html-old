@@ -1,0 +1,30 @@
+{
+  "title": "respiratory-html",
+
+  "routes": [
+    {
+      "title": "Главная",
+      "path": "main"
+    },
+    {
+      "title": "Каталог",
+      "path": "catalog"
+    },
+    {
+      "title": "Карточка товара",
+      "path": "product"
+    },
+    {
+      "title": "Оформление заказа",
+      "path": "order"
+    },
+    {
+      "title": "О компании",
+      "path": "about"
+    },
+    {
+      "title": "Тестовая",
+      "path": "test"
+    }
+  ]
+}

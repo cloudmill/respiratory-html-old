@@ -1,0 +1,33 @@
+// https://developer.mozilla.org/ru/docs/Web/CSS/@font-face
+
+@function getFontUrl($filename) {
+  @return url("../assets/fonts123/#{$filename}");
+}
+
+@function getFontUrl($filename) {
+  @return url("../assets/fonts/#{$filename}");
+}
+
+@font-face {
+  font-family: "ALSGorizont";
+
+  src: getFontUrl("ALSGorizont.woff");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 500;
+
+  src: getFontUrl("Manrope-Medium.woff");
+}
+
+@function getFontUrl($filename) {
+  @return url("../assets/fonts/#{$filename}");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 600;
+
+  src: getFontUrl("Manrope-SemiBold.woff");
+}

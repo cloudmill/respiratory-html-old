@@ -1,0 +1,134 @@
+// селект
+.eks {
+  $component: &;
+
+  --panel-height: #{getRem(60px)};
+  --drop-height: #{getRem(150px)};
+
+  position: relative;
+
+  height: var(--panel-height);
+
+  * {
+    &,
+    &::before,
+    &::after {
+      transition: 0.5s;
+    }
+  }
+
+  &:hover {
+    #{$component} {
+      &__mask {
+        border-color: black;
+      }
+
+      &__icon {
+        color: black;
+      }
+    }
+  }
+
+  // стилизация открытого селекта
+  &--open {
+    z-index: 1;
+
+    &:hover {
+      #{$component} {
+        &__mask {
+          border-color: blue;
+        }
+
+        &__icon {
+          color: blue;
+        }
+      }
+    }
+
+    #{$component} {
+      &__mask {
+        height: calc(var(--panel-height) + var(--drop-height));
+
+        border-color: blue;
+      }
+
+      &__icon {
+        transform: rotate(180deg);
+
+        color: blue;
+      }
+    }
+  }
+
+  // стилизация селекта с выбранным значением (без placeholder'a)
+  &--value {
+    #{$component} {
+      &__text {
+        color: black;
+      }
+    }
+  }
+
+  // вариант селекта с другим дропом (дром другой высоты)
+  &--drop {
+    --drop-height: #{getRem(300px)};
+  }
+
+  &__mask {
+    @include inset(0);
+
+    position: absolute;
+    bottom: auto;
+
+    height: var(--panel-height);
+    overflow: hidden;
+
+    background-color: white;
+    border: 1px solid gray;
+  }
+
+  &__panel {
+    height: var(--panel-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+  }
+
+  &__text {
+    color: gray;
+  }
+
+  &__icon {
+    margin-left: getRem(20px);
+    flex-shrink: 0;
+
+    color: gray;
+  }
+
+  &__drop {
+    height: var(--drop-height);
+
+    border-top: 1px solid gray;
+  }
+
+  &__value {
+    color: gray;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+
+    &:not(:first-child) {
+      margin-top: getRem(20px);
+
+      cursor: pointer;
+    }
+
+    &--active {
+      color: blue;
+    }
+  }
+}

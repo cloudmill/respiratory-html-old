@@ -1,0 +1,69 @@
+@mixin font($configuration: 1) {
+  @if $configuration == 1 {
+    font-family: "ALSGorizont";
+  } @else if $configuration == 2 {
+    font-family: "ALSGorizont";
+    letter-spacing: -0.02em;
+  } @else if $configuration == 3 {
+    font-family: "ALSGorizont";
+    letter-spacing: -0.06em;
+  } @else if $configuration == 4 {
+    font-family: "Manrope";
+    font-weight: 500;
+  } @else if $configuration == 5 {
+    font-family: "Manrope";
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  } @else if $configuration == 6 {
+    font-family: "Manrope";
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  } @else if $configuration == 7 {
+    font-family: "Manrope";
+    font-weight: 600;
+  }
+}
+
+@mixin font-title($variant: 1) {
+  @include font($variant);
+}
+
+@mixin getArea($x, $y, $width, $height) {
+  grid-column: $x / span $width;
+  grid-row: $y / span $height;
+}
+
+@mixin inset($offset) {
+  top: $offset;
+  bottom: $offset;
+  left: $offset;
+  right: $offset;
+}
+
+@mixin getSize($width, $height: null) {
+  @if $height {
+    width: $width;
+    height: $height;
+  } @else {
+    width: $width;
+    height: $width;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}

@@ -1,0 +1,42 @@
+// 2 колонки на
+.ctn {
+  display: flex;
+  align-items: flex-end;
+
+  &__col {
+    width: calc((100% - #{$gap}) / 2);
+    flex-shrink: 0;
+
+    &:last-child {
+      margin-left: $gap;
+    }
+  }
+}
+
+// h2 подзаголовок
+.jwg {
+  @include font(3);
+
+  max-width: getRem(767px);
+
+  font-size: getRem(54px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rrf {
+  &:not(:last-child) {
+    width: calc(#{getCols(3)} + #{$gap});
+    padding-right: $gap;
+  }
+
+  &:last-child {
+    width: calc(#{getCols(3)});
+  }
+
+  &__container {
+    min-height: getRem(360px);
+
+    background-color: var(--color-gray-1);
+  }
+}

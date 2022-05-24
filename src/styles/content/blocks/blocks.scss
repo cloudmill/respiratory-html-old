@@ -1,0 +1,942 @@
+// title
+.bbapqc {
+  @include font(3);
+
+  font-size: getRem(72px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+// left arrow circle button
+.ommfre {
+  $component: &;
+
+  @include getSize(getRem(54px));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-blue);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &--iifmew {
+    @include getSize(getRem(44px));
+
+    #{$component} {
+      &__svg {
+        @include getSize(getRem(17px));
+      }
+    }
+  }
+
+  &--rtluns {
+    #{$component} {
+      &__svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &--rxljso {
+    background-color: var(--color-black);
+
+    &:hover {
+      background-color: var(--color-blue);
+    }
+  }
+
+  &__svg {
+    @include getSize(getRem(22px), getRem(15px));
+  }
+}
+
+// title with back button block
+.elfadi {
+  padding-bottom: getRem(20px);
+  display: flex;
+
+  border-bottom: 1px solid var(--color-gray-2);
+
+  &__back {
+    margin-right: getRem(12px);
+  }
+
+  &__title {
+  }
+}
+
+// sub title (h2, h3)
+.pfwgww {
+  @include font(2);
+
+  font-size: getRem(18px);
+  line-height: 1;
+  text-transform: uppercase;
+
+  // sub-title увеличенный
+  &--wiwhvt {
+    font-size: getRem(32px);
+    line-height: 1.2;
+  }
+}
+
+// feature card # 1
+.fcpzms {
+  padding: getRem(20px);
+  min-height: getRem(108px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid var(--color-gray-2);
+  box-sizing: border-box;
+  border-radius: 0px getRem(12px) getRem(12px) getRem(12px);
+
+  &--ysocmh {
+    height: 100%;
+  }
+
+  &__title {
+    @include font(2);
+
+    font-size: getRem(32px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    @include font(4);
+
+    margin-top: getRem(4px);
+
+    font-size: getRem(12px);
+    line-height: 1.3;
+    text-align: right;
+  }
+}
+
+// features grid (or other staff)
+.ndxzhy {
+  --gap: #{$gap};
+  --col-count: 3;
+
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+
+  // 2 колонки
+  &--zoxaue {
+    --col-count: 2;
+  }
+
+  // 1 колонка
+  &--jbjufj {
+    --gap: #{getRem(8px)};
+    --col-count: 1;
+  }
+}
+
+// feature card # 2
+.izboxg {
+  padding: getRem(16px) getRem(12px) getRem(16px) getRem(26px);
+  display: flex;
+  min-height: getRem(80px);
+
+  background-color: var(--color-gray-1);
+  border-radius: 0px getRem(12px) getRem(12px) getRem(12px);
+
+  &--zsdtwh {
+    height: 100%;
+  }
+
+  &__img {
+    @include getSize(getRem(48px));
+
+    margin-right: getRem(26px);
+    flex-shrink: 0;
+  }
+
+  &__content {
+    padding: getRem(2px) 0;
+  }
+
+  &__property {
+    @include font(4);
+
+    font-size: getRem(14px);
+    line-height: 1.3;
+  }
+
+  &__value {
+    @include font(2);
+
+    margin-top: getRem(9px);
+
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+// feature card # 3
+.onipfv {
+  display: flex;
+
+  &--wkdqck {
+    padding: getRem(6px);
+    padding-right: getRem(16px);
+
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(8px);
+  }
+
+  &__img {
+    @include getSize(getRem(48px));
+
+    margin-right: getRem(16px);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    @include font(4);
+
+    padding: getRem(15px) 0;
+
+    font-size: getRem(14px);
+    line-height: 1.3;
+  }
+}
+
+// badge
+.dqnoxb {
+  $component: &;
+
+  display: flex;
+
+  // хлебная крошка
+  &--hjdvot {
+    #{$component} {
+      &__button {
+        @include font(2);
+
+        padding: getRem(8px) getRem(12px);
+
+        font-size: getRem(13px);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  // текущая хлебная крошка
+  &--vjzfip {
+    #{$component} {
+      &__button {
+        background-color: var(--color-gray-2);
+
+        &:hover {
+          border-color: var(--color-gray-2);
+        }
+      }
+    }
+  }
+
+  &__button {
+    @include font(4);
+
+    padding: getRem(7px) getRem(12px);
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(6px);
+    font-size: getRem(12px);
+    line-height: 1.3;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: var(--color-blue);
+    }
+  }
+}
+
+// badge list
+.lhqxmb {
+  --gap: #{getRem(4px)};
+
+  &--okgqtd {
+    --gap: #{getRem(8px)};
+  }
+
+  &__list {
+    margin-top: calc(-1 * var(--gap));
+    margin-left: calc(-1 * var(--gap));
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-top: var(--gap);
+    margin-left: var(--gap);
+  }
+}
+
+// info card
+.ulbfcv {
+  padding-top: getRem(12px);
+
+  border-top: 1px solid var(--color-gray-2);
+
+  &__property {
+    @include font(4);
+
+    font-size: getRem(14px);
+    line-height: 1.3;
+  }
+
+  &__value {
+    @include font(2);
+
+    margin-top: getRem(12px);
+
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+// article
+.yhontr {
+  @include font(4);
+
+  padding-left: calc(#{$col} + #{$gap});
+  max-width: calc(#{getCols(5)});
+
+  font-size: 16px;
+  line-height: 1.6;
+
+  &:not(:first-child) {
+    margin-top: getRem(26px); // line-height
+  }
+}
+
+// progress card
+.syirtg {
+  display: flex;
+  align-items: stretch;
+
+  &__image {
+    position: relative;
+    z-index: 0;
+
+    width: calc(#{getCols(4)});
+    min-height: getRem(398px);
+    display: flex;
+    overflow: hidden;
+
+    border-radius: 0px 0px getRem(40px) 0px;
+  }
+
+  &__img {
+    @include getSize(100%);
+
+    object-fit: cover;
+  }
+
+  &__label {
+    position: absolute;
+    bottom: getRem(20px);
+    right: getRem(20px);
+  }
+
+  &__content {
+    margin-left: $gap;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__col {
+    width: 50%;
+
+    &:not(:first-child) {
+      margin-left: $gap;
+    }
+  }
+
+  &__progress {
+    display: flex;
+  }
+
+  &__current,
+  &__all {
+    @include font(2);
+  }
+
+  &__current {
+    color: var(--color-blue);
+
+    font-size: getRem(40px);
+    line-height: 1;
+  }
+
+  &__all {
+    margin-left: getRem(10px);
+
+    font-size: getRem(16px);
+    line-height: 1;
+  }
+
+  &__title {
+    @include font(2);
+
+    margin-top: getRem(40px);
+    width: calc(#{getCols(2)});
+
+    font-size: getRem(20px);
+    line-height: 1.3;
+  }
+}
+
+// doc
+.gmjvle {
+  position: relative;
+  z-index: 0;
+
+  padding: $gap;
+  padding-right: getRem(70px);
+  min-height: getRem(215px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-2);
+  border-radius: getRem(8px);
+
+  &__title,
+  &__weight {
+    @include font(7);
+
+    font-size: getRem(16px);
+    line-height: 1.3;
+  }
+
+  &__title {
+  }
+
+  &__weight {
+    color: var(--color-gray-3);
+  }
+
+  &__svg {
+    @include getSize(getRem(30px), getRem(37px));
+
+    position: absolute;
+    bottom: $gap;
+    right: $gap;
+  }
+}
+
+// блок с подзаголовком и контроллами слайдера + бордер
+.baxwyj {
+  padding-top: getRem(16px);
+  display: flex;
+
+  border-top: 1px solid var(--color-gray-2);
+
+  &__col {
+    width: 50%;
+
+    &:not(:first-child) {
+      margin-left: $gap;
+    }
+  }
+}
+
+// controls
+.amaqvj {
+  display: flex;
+
+  &__col {
+    &:not(:first-child) {
+      margin-left: getRem(8px);
+    }
+  }
+}
+
+// slider
+.usgkhj {
+}
+
+// slide
+.yzunuk {
+  position: relative;
+  z-index: 0;
+
+  padding: $pad;
+  width: 50vw;
+  display: flex;
+
+  background-color: var(--color-white);
+
+  &::before {
+    @include inset(0);
+
+    position: absolute;
+    z-index: -1;
+
+    content: "";
+    margin-left: -1px;
+    pointer-events: none;
+
+    border: 1px solid var(--color-gray-2);
+  }
+
+  &:hover {
+    z-index: 1;
+
+    &::before {
+      border-color: var(--color-blue);
+    }
+  }
+
+  &__img {
+    width: calc(#{getCols(3)});
+    flex-shrink: 0;
+    min-height: getRem(552px);
+    object-fit: cover;
+  }
+
+  &__content {
+    margin-left: $gap;
+    flex-grow: 1;
+  }
+
+  &__title {
+    @include font(3);
+
+    font-size: getRem(54px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__props {
+    margin-top: getRem(40px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: $gap;
+    row-gap: $gap;
+  }
+
+  &__prop {
+    &-title {
+      @include font(4);
+
+      font-size: getRem(14px);
+      line-height: 1.3;
+    }
+
+    &-value {
+      @include font(2);
+
+      margin-top: getRem(9px);
+
+      font-size: getRem(16px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__feature {
+    margin-top: getRem(40px);
+  }
+
+  &__sub-title {
+    @include font(2);
+
+    margin-top: getRem(40px);
+
+    font-size: getRem(13px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__tags {
+    margin-top: getRem(20px);
+  }
+}
+
+// gaps (padding)
+.wubhhh {
+  padding-top: getRem(180px);
+}
+.lmsyry {
+  padding-top: getRem(80px);
+}
+
+// gaps (margin)
+.akrsnt {
+  margin-top: getRem(120px);
+}
+.mqp {
+  margin-top: getRem(100px);
+}
+.ravxnv {
+  margin-top: getRem(80px);
+}
+.avbkdm {
+  margin-top: getRem(60px);
+}
+.nvmuyk {
+  margin-top: getRem(40px);
+}
+.kzgrca {
+  margin-top: getRem(20px);
+}
+
+// держательно контента с декорацией (Оформление заказа)
+.chkzqs {
+  border-top: 1px solid var(--color-gray-2);
+
+  &__content {
+    margin: 0 auto;
+    padding: 0 calc(#{$col} + #{$gap});
+    width: calc(#{getCols(8)});
+
+    border-left: 1px solid var(--color-gray-2);
+    border-right: 1px solid var(--color-gray-2);
+  }
+}
+
+// кнопка с иконкой
+.mcusad {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
+  padding: getRem(18px);
+  width: 100%;
+  min-height: getRem(60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: getRem(8px);
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--color-gray-1);
+    cursor: not-allowed;
+
+    #{$component} {
+      &__decoration {
+        &::before,
+        &::after {
+          border-color: var(--color-gray-2);
+        }
+      }
+
+      &__text {
+        color: var(--color-gray-3);
+        opacity: 0.3;
+      }
+
+      &__svg {
+        path {
+          stroke: var(--color-gray-2);
+        }
+      }
+    }
+  }
+
+  // ограничение по ширине в 3 колонки
+  &--antzhn {
+    max-width: calc(#{getCols(3)});
+  }
+
+  &__decoration {
+    $offset: getRem(10px);
+    $size: getRem(10px);
+
+    @include inset(0);
+
+    position: absolute;
+    z-index: -1;
+
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      @include getSize($size);
+
+      position: absolute;
+
+      content: "";
+
+      border-top: 1px solid var(--color-yellow);
+      border-right: 1px solid var(--color-yellow);
+      border-radius: 0 math.div($size, 2) 0 0;
+    }
+
+    &::before {
+      top: $offset;
+      right: $offset;
+    }
+
+    &::after {
+      bottom: $offset;
+      left: $offset;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__svg {
+    @include getSize(getRem(24px));
+
+    margin-right: getRem(8px);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    @include font(1);
+
+    font-size: getRem(13px);
+    line-height: 1;
+    color: var(--color-white);
+    text-transform: uppercase;
+  }
+}
+
+// текстовое поле
+.lpxpkk {
+  @include font(4);
+
+  @include placeholder() {
+    color: var(--color-gray-3);
+  }
+
+  padding: getRem(19px) getRem(24px) getRem(20px) getRem(24px);
+  width: 100%;
+  height: getRem(60px);
+  display: block;
+
+  background: var(--color-gray-1);
+  border: 1px solid var(--color-gray-2);
+  border-radius: getRem(12px);
+  font-size: getRem(16px);
+  line-height: 1.3;
+
+  // textarea
+  &--vkvfwb {
+    height: getRem(141px);
+    resize: none;
+  }
+}
+
+// checkbox/radio button
+.nugtcb {
+  $component: &;
+
+  position: relative;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    opacity: 0;
+
+    &:checked {
+      & + {
+        #{$component} {
+          &__label {
+            background-color: var(--color-yellow);
+            border-color: var(--color-yellow);
+
+            #{$component} {
+              &__mark {
+                background-color: var(--color-black);
+                border-color: var(--color-black);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    padding: getRem(17px) getRem(24px);
+    min-height: getRem(60px);
+    display: flex;
+    overflow: hidden;
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(12px);
+    cursor: pointer;
+  }
+
+  &__mark {
+    @include getSize(getRem(24px));
+
+    margin-right: getRem(24px);
+    flex-shrink: 0;
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(4px);
+  }
+
+  &__text {
+    @include font(4);
+
+    padding: getRem(1px) 0 getRem(2px) 0;
+
+    font-size: getRem(16px);
+    line-height: 1.3;
+  }
+}
+
+// пояснение к полю (textarea)
+.cmjcvs {
+  @include font(4);
+
+  font-size: getRem(16px);
+  line-height: 1.6;
+  color: var(--color-gray-3);
+}
+
+// agreeement checkbox
+.aoabcj {
+  $component: &;
+
+  display: flex;
+
+  &__label {
+    position: relative;
+
+    display: flex;
+
+    cursor: pointer;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    opacity: 0;
+
+    &:checked {
+      & + {
+        #{$component} {
+          &__mark {
+            background-color: var(--color-blue);
+            border-color: var(--color-blue);
+          }
+        }
+      }
+    }
+  }
+
+  &__mark {
+    @include getSize(getRem(24px));
+
+    margin-right: getRem(12px);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(4px);
+  }
+
+  &__svg {
+    @include getSize(getRem(15px), getRem(10px));
+  }
+
+  &__text {
+    @include font(4);
+
+    padding: getRem(3px) 0;
+
+    font-size: getRem(12px);
+    line-height: 1.6;
+  }
+
+  &__link {
+    color: var(--color-blue);
+  }
+}
+
+// bottom формы с сабмитом и чекбоксом соглашения
+.pcvkpe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__col {
+    &:last-child {
+      margin-left: $gap;
+      width: getRem(217px);
+      flex-shrink: 0;
+    }
+  }
+}
+
+// datapicker container
+.ozbbnq {
+  max-width: calc(#{getCols(3)});
+}
+
+// close button
+.ppdaco {
+  @include getSize(getRem(48px));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-2);
+  border-radius: getRem(40px);
+  box-shadow: 0px getRem(12px) getRem(20px) var(--color-shadow);
+  cursor: pointer;
+
+  &__svg {
+    @include getSize(getRem(17px));
+  }
+}
+
+// block с селектами из Оформление заказа
+.qjwxwp {
+  position: relative;
+
+  padding: getRem(24px);
+
+  background-color: var(--color-gray-1);
+  border-radius: getRem(12px);
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+}

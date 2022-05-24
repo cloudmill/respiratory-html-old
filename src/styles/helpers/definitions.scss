@@ -1,0 +1,56 @@
+$font-size-root: 16px;
+
+@function getRem($px) {
+  @return math.div($px, $font-size-root) * 1rem;
+}
+
+$breakpoint-max: 1920px;
+$breakpoint-min: 320px;
+
+$breakpoints: (
+  $breakpoint-max,
+  1680px,
+  1440px,
+  1366px,
+  1280px,
+  1024px,
+  768px,
+  576px,
+  375px,
+  $breakpoint-min
+);
+
+:root {
+  --color-blue: #2967eb;
+  --color-yellow: #ffed49;
+  --color-shadow: rgba(42, 46, 55, 0.12);
+
+  --color-white: white;
+  --color-black: #191a1c;
+
+  --color-gray-1: #f2f5f8;
+  --color-gray-2: #e5e9ef;
+  --color-gray-3: #87909b;
+  --color-gray-4: #5d6064;
+  --color-gray-5: #333333;
+
+  --color-gray: #333333;
+  --color-gray-dark: #5d6064;
+  --color-gray-light: #e5e9ef;
+}
+
+$pad: getRem(40px);
+$gap: getRem(20px);
+$col: "((100vw - (#{$pad} * 2) - (#{$gap} * 11)) / 12)";
+
+@function getVw($px, $breakpoint) {
+  /*
+    1vw === 1% of real window width (without scrollbar)
+  */
+
+  @return math.div($px, $breakpoint) * 100vw;
+}
+
+@function getCols($count: 1) {
+  @return "((#{$col} * #{$count}) + (#{$gap} * #{$count - 1}))";
+}

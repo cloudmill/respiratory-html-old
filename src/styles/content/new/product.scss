@@ -1,0 +1,1906 @@
+// тут все стили со страницы Product, в одном месте
+
+.container {
+  padding-left: $pad;
+  padding-right: $pad;
+}
+
+.row {
+  &--section,
+  &--filter,
+  &--half,
+  &--panel {
+    display: grid;
+    column-gap: $gap;
+  }
+
+  &--section {
+    grid-template-columns: calc(#{getCols(3)}) calc(#{getCols(9)});
+  }
+
+  &--filter {
+    grid-template-columns: calc(#{getCols(9)}) calc(#{getCols(3)});
+  }
+
+  &--half {
+    grid-template-columns: calc(#{getCols(6)}) calc(#{getCols(6)});
+  }
+
+  &--panel {
+    grid-template-columns: calc(#{getCols(3)}) calc(#{getCols(3)}) calc(
+        #{getCols(6)}
+      );
+  }
+}
+
+.rails {
+  height: 100%;
+
+  &__train {
+    $header-height: getRem(170px);
+
+    position: sticky;
+    top: $header-height;
+  }
+}
+
+.panel {
+  padding: getRem(40px) 0;
+
+  background-color: var(--color-white);
+
+  &--sticky {
+    position: sticky;
+    bottom: 0;
+  }
+}
+
+.mock {
+  min-height: 300vh;
+
+  background-image: linear-gradient(to bottom, white, var(--color-black));
+}
+
+.wall {
+  $gap: getRem(8px);
+
+  &__list {
+    margin-top: -$gap;
+    margin-left: -$gap;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-top: $gap;
+    margin-left: $gap;
+  }
+}
+
+.badge {
+  display: flex;
+
+  &__link {
+    $element: &;
+
+    &--variant {
+      &--tab {
+        $variant: &;
+
+        @include font(2);
+
+        padding: getRem(20px) getRem(16px);
+
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-2);
+        border-radius: getRem(6px);
+        font-size: getRem(20px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(#{$element}--no-hover, #{$variant}-active) {
+          &:hover {
+            border-color: var(--color-blue);
+            color: var(--color-blue);
+          }
+        }
+
+        &:not(#{$variant}-active) {
+          cursor: pointer;
+        }
+
+        &-active {
+          background-color: var(--color-yellow);
+          border-color: var(--color-yellow);
+        }
+      }
+
+      &--breadcrumb {
+        @include font(2);
+
+        padding: getRem(8px) getRem(12px);
+
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-2);
+        border-radius: getRem(4px);
+        font-size: getRem(13px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(#{$element}--no-hover) {
+          &:hover {
+            border-color: var(--color-blue);
+            color: var(--color-blue);
+          }
+        }
+
+        &-active {
+          background-color: var(--color-gray-2);
+        }
+      }
+    }
+  }
+}
+
+.article {
+  @include font(2);
+
+  font-size: getRem(60px);
+  line-height: 1.1;
+  text-indent: getRem(150px);
+  text-transform: uppercase;
+
+  &--small {
+    font-size: getRem(32px);
+    line-height: 1.2;
+  }
+
+  &__link {
+    color: var(--color-blue);
+  }
+}
+
+.body {
+  width: 100vw;
+  min-width: $breakpoint-min;
+  overflow-x: hidden;
+}
+
+.button-link {
+  $component: &;
+
+  display: flex;
+
+  &--in-header {
+    #{$component}__text {
+      font-size: getRem(13px);
+      line-height: 1;
+      color: var(--color-white);
+    }
+  }
+
+  &--theme {
+    &--color {
+      #{$component}__link {
+        background-color: var(--color-blue);
+        border-color: var(--color-blue);
+
+        &:hover {
+          background-color: var(--color-white);
+          border-color: var(--color-white);
+
+          #{$component}__text {
+            color: var(--color-black);
+          }
+        }
+      }
+
+      #{$component}__text {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &--fluid {
+    #{$component} {
+      &__link {
+        width: 100%;
+      }
+    }
+  }
+
+  &--in-panel {
+    #{$component} {
+      &__link {
+        padding: getRem(22px) 0 getRem(23px) 0;
+      }
+
+      &__text {
+        @include font(1);
+
+        font-size: getRem(13px);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    z-index: 0;
+
+    padding: getRem(15px) getRem(28px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid var(--color-white);
+    border-radius: getRem(8px);
+
+    &::before,
+    &::after {
+      position: absolute;
+
+      content: "";
+      $size: getRem(10px);
+      width: $size;
+      height: $size;
+
+      border-top: 1px solid var(--color-yellow);
+      border-right: 1px solid var(--color-yellow);
+      border-radius: 0 getRem(5px) 0 0;
+    }
+    &::before {
+      top: getRem(8px);
+      right: getRem(8px);
+    }
+    &::after {
+      bottom: getRem(8px);
+      left: getRem(8px);
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      border-color: var(--color-blue);
+
+      #{$component}__text {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__text {
+    font-size: getRem(11px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+.footer {
+  background-color: var(--color-black);
+  color: white;
+
+  &__row {
+    position: relative;
+    z-index: 0;
+
+    display: flex;
+  }
+
+  &__col {
+    width: 50%;
+
+    &:last-child {
+      margin-left: -1px;
+    }
+  }
+
+  &__phone {
+    $icon-size: getRem(44px);
+
+    --border-color: var(--color-gray-5);
+
+    padding: $pad;
+    min-height: getRem(180px);
+
+    border-bottom: 1px solid var(--border-color);
+
+    &:first-child {
+      border-right: 1px solid var(--border-color);
+    }
+
+    &:last-child {
+      border-left: 1px solid var(--border-color);
+    }
+
+    &:hover {
+      z-index: 1;
+
+      border-color: var(--color-white);
+
+      color: var(--color-blue);
+    }
+
+    &-container {
+      position: relative;
+
+      padding-right: $icon-size + $pad;
+      height: 100%;
+    }
+
+    &-phone,
+    &-description {
+      display: block;
+    }
+
+    &-phone {
+      @include font(2);
+
+      font-size: getRem(60px);
+      text-transform: uppercase;
+    }
+
+    &-description {
+      @include font(5);
+
+      font-size: getRem(16px);
+      line-height: 1.3;
+      color: var(--color-gray-4);
+    }
+
+    &-icon {
+      @include getSize($icon-size);
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid var(--color-gray-5);
+      border-radius: 50%;
+    }
+
+    &-svg {
+      @include getSize(getRem(17px));
+    }
+  }
+
+  &__bottom {
+    padding: $pad 0 ($pad * 2) 0;
+  }
+
+  &__email {
+    display: flex;
+    justify-content: center;
+
+    &-link {
+      @include font(2);
+
+      font-size: getRem(40px);
+      line-height: 1;
+      text-transform: uppercase;
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__grid {
+    margin-top: getRem(180px);
+    display: grid;
+    grid-template-columns: repeat(4, calc(#{getCols(3)}));
+    column-gap: $gap;
+    align-items: end;
+
+    &-place {
+    }
+  }
+
+  &__links {
+    &-item {
+      &:not(:first-child) {
+        margin-top: getRem(16px);
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+
+    &-link {
+      @include font(6);
+
+      font-size: getRem(16px);
+      line-height: 1.3;
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+
+    &-item {
+      &:not(:first-child) {
+        margin-left: getRem(8px);
+      }
+    }
+  }
+
+  &__shelf {
+    &:not(:first-child) {
+      margin-top: getRem(36px);
+    }
+
+    &--small {
+      &:not(:first-child) {
+        margin-top: getRem(12px);
+      }
+    }
+  }
+
+  &__social {
+    @include getSize(getRem(44px));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--color-gray-5);
+    border-radius: 50%;
+
+    &:hover {
+      border-color: var(--color-blue);
+
+      .footer__social-svg {
+        path {
+          fill: var(--color-blue);
+        }
+      }
+    }
+
+    &-svg {
+      &--facebook {
+        @include getSize(getRem(8px), getRem(16px));
+      }
+
+      &--youtube {
+        @include getSize(getRem(18px), getRem(12px));
+      }
+
+      &--vk {
+        @include getSize(getRem(18px), getRem(11px));
+      }
+    }
+  }
+
+  &__copyright {
+    @include font(6);
+
+    font-size: getRem(14px);
+    line-height: 1.3;
+    color: var(--color-gray-4);
+  }
+
+  &__author {
+    @include font(6);
+
+    display: flex;
+
+    font-size: getRem(14px);
+    line-height: 1.3;
+    color: var(--color-gray-4);
+
+    &-link {
+      color: var(--color-white);
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
+  }
+}
+
+.gap {
+  &--section {
+    margin-top: getRem(180px);
+  }
+
+  &--block {
+    margin-top: getRem(100px);
+  }
+
+  &--small {
+    padding-top: getRem(40px);
+  }
+
+  &--bottom {
+    padding-top: getRem(180px);
+  }
+}
+
+.header {
+  $component: &;
+
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
+  background-color: var(--color-gray); // test
+
+  &__block {
+    padding-top: getRem(24px);
+    padding-bottom: getRem(24px);
+
+    &--border {
+      &--bottom {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns:
+      calc(#{getCols(3)}) calc(#{getCols(2)}) calc(#{getCols(4)})
+      calc(#{getCols(3)});
+    column-gap: $gap;
+    align-items: center;
+
+    &-cell {
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+
+    &--grid {
+      #{$component}__row-col {
+        width: calc((100% - (#{$gap} * 2)) / 3);
+
+        &:not(:first-child) {
+          margin-left: $gap;
+        }
+      }
+    }
+
+    &--align {
+      &--right {
+        justify-content: flex-end;
+      }
+    }
+
+    &-col {
+      &--space {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__text {
+    font-size: getRem(13px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-white);
+
+    &--large {
+      font-size: getRem(18px);
+    }
+  }
+
+  &__link {
+    display: flex;
+
+    &-link {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+
+    &-link {
+      cursor: pointer;
+
+      &:hover {
+        #{$component}__logo-svg {
+          path {
+            fill: var(--color-blue);
+          }
+        }
+      }
+    }
+
+    &-svg {
+      width: getRem(194px);
+      height: getRem(49px);
+    }
+  }
+
+  &__search {
+    display: flex;
+
+    &--align {
+      &--right {
+        justify-content: flex-end;
+      }
+    }
+
+    &-link {
+      display: flex;
+
+      cursor: pointer;
+
+      &:hover {
+        #{$component}__search-svg {
+          path {
+            fill: var(--color-blue);
+          }
+        }
+      }
+    }
+
+    &-svg {
+      $size: getRem(20px);
+
+      width: $size;
+      height: $size;
+    }
+  }
+}
+
+.drop-link {
+  $component: &;
+
+  display: flex;
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    &:hover {
+      #{$component}__text {
+        color: var(--color-blue);
+      }
+
+      #{$component}__svg {
+        path {
+          fill: var(--color-blue);
+        }
+      }
+    }
+  }
+
+  &__text {
+  }
+
+  &__icon {
+    display: flex;
+    margin-left: getRem(7px);
+
+    &--margin {
+      &--large {
+        margin-left: getRem(11px);
+      }
+    }
+  }
+  &__svg {
+    width: getRem(15px);
+    height: getRem(9px);
+  }
+}
+
+.html {
+  @include font-title(1);
+
+  font-size: getVw($font-size-root, $breakpoint-max);
+
+  @each $breakpoint in $breakpoints {
+    @media (max-width: ($breakpoint - 1px)) {
+      font-size: getVw($font-size-root, $breakpoint);
+    }
+  }
+}
+
+.info {
+  padding: getRem(80px) 0;
+  overflow: hidden;
+
+  border-radius: 0px 0px getRem(120px) 0px;
+  background-color: var(--color-black);
+  background-image: url("assets/images/info.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+
+  &__bottom {
+    position: relative;
+    z-index: 0;
+
+    margin-top: getRem(240px);
+    margin-left: auto;
+    width: calc(#{getCols(4)});
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      bottom: getRem(-25px);
+      left: getRem(-120px);
+
+      content: "";
+      $size: getRem(425px);
+      width: $size;
+      height: $size;
+
+      background-color: black;
+      border-radius: 50%;
+      filter: blur(getRem(244px));
+      opacity: 0.6;
+    }
+  }
+
+  &__article {
+    @include font(5);
+
+    width: getRem(432px);
+
+    font-size: getRem(24px);
+    line-height: 1.3;
+  }
+  &__button-link {
+    margin-top: getRem(40px);
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    @include font(3);
+
+    font-size: getRem(90px);
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  &__col {
+    &:last-child {
+      margin-left: getRem(15px);
+    }
+  }
+
+  &__avatar {
+    margin: getRem(4px) 0;
+    width: getRem(170px);
+    height: getRem(92px);
+    display: flex;
+    overflow: hidden;
+
+    border-radius: getRem(60px);
+  }
+}
+
+.menu-button {
+  display: flex;
+
+  &__button {
+    padding: getRem(20px) getRem(32px);
+    display: flex;
+    align-items: center;
+
+    background-color: var(--color-blue);
+    border-radius: getRem(12px);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-white);
+
+      .menu-button__text {
+        color: var(--color-black);
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+  }
+
+  &__svg {
+    $size: getRem(20px);
+
+    width: $size;
+    height: $size;
+  }
+
+  &__text {
+    @include font-title(1);
+
+    margin-left: getRem(18px);
+
+    font-size: getRem(18px);
+    line-height: 1;
+    color: var(--color-white);
+    text-transform: uppercase;
+  }
+}
+
+.section {
+  $component: &;
+
+  margin-top: 20px; // test
+
+  &__border {
+    border-top: 1px solid var(--color-gray-light);
+  }
+
+  &__container {
+    padding-top: getRem(16px);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: calc(#{getCols(3)}) calc(#{getCols(9)});
+    column-gap: $gap;
+
+    &--vertical {
+      row-gap: getRem(32px);
+
+      #{$component}__aside {
+        @include getArea(1, 1, 2, 1);
+      }
+      #{$component}__main {
+        @include getArea(1, 2, 2, 1);
+      }
+    }
+
+    &--layering {
+      #{$component}__aside,
+      #{$component}__main {
+        @include getArea(1, 2, 1, 1);
+      }
+    }
+  }
+
+  &__place {
+    display: none;
+  }
+  &__aside {
+    @include getArea(1, 1, 1, 1);
+  }
+  &__main {
+    @include getArea(2, 1, 1, 1);
+  }
+
+  &__row {
+    display: flex;
+
+    &--space-between {
+      justify-content: space-between;
+    }
+  }
+}
+
+.title {
+  &--section {
+    @include font(2);
+
+    font-size: getRem(18px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &--page {
+    @include font(3);
+
+    font-size: getRem(72px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, calc(#{getCols(4)}));
+  column-gap: getRem(20px);
+
+  &--margin {
+    margin-top: getRem(32px);
+  }
+
+  &__item {
+  }
+}
+
+.card {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
+  $padding: getRem(40px);
+  padding: $padding calc(#{$col}) $padding $padding;
+  height: getRem(600px);
+  display: block;
+  overflow: hidden;
+
+  $radius: getRem(16px);
+  border-radius: 0px $radius $radius $radius;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    $offset: getRem(40px);
+    top: $offset;
+    right: $offset;
+
+    content: "";
+    $size: getRem(20px);
+    width: $size;
+    height: $size;
+
+    border-top: 1px solid var(--color-blue);
+    border-right: 1px solid var(--color-blue);
+    border-radius: 0 getRem(10px) 0 0;
+  }
+
+  &:hover {
+    #{$component}__title {
+      color: var(--color-blue);
+    }
+  }
+
+  &__title {
+    @include font(2);
+
+    font-size: getRem(28px);
+    line-height: 1.1;
+    color: var(--color-white);
+    text-transform: uppercase;
+
+    &--dark {
+      color: var(--color-black);
+    }
+  }
+
+  &__label {
+    position: absolute;
+    $offset: getRem(40px);
+    bottom: $offset;
+    right: $offset;
+
+    $size: getRem(64px);
+    width: $size;
+    height: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-blue);
+    border-radius: 50%;
+
+    &-svg {
+    }
+  }
+
+  &__background {
+    @include inset(0);
+
+    position: absolute;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+}
+
+.button {
+  $component: &;
+
+  $size: getRem(64px);
+  width: $size;
+  height: $size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: var(--color-black);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-blue);
+  }
+
+  &--right {
+    #{$component}__svg {
+      transform: rotate(45deg);
+    }
+  }
+
+  &--small {
+    @include getSize(getRem(44px));
+  }
+
+  &__svg {
+    transform: rotate(-135deg);
+
+    $size: getRem(17px);
+    width: $size;
+    height: $size;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &:last-child {
+      margin-left: getRem(8px);
+    }
+  }
+}
+
+.products {
+  $components: &;
+
+  &__grid {
+    $gap-column: $gap;
+    $gap-row: getRem(88px);
+
+    display: grid;
+    grid-template-columns:
+      calc(#{getCols(3)}) calc(#{getCols(3)}) calc(#{getCols(2)})
+      calc(#{getCols(4)});
+    grid-template-rows: auto 1fr;
+    column-gap: $gap-column;
+    row-gap: $gap-row;
+
+    &-cell {
+      &--title {
+        @include getArea(1, 1, 1, 1);
+      }
+      &--tabs {
+        @include getArea(2, 1, 2, 1);
+      }
+      &--content {
+        @include getArea(1, 2, 2, 1);
+      }
+      &--photos {
+        @include getArea(3, 2, 1, 1);
+
+        align-self: end;
+      }
+      &--photo {
+        @include getArea(4, 1, 1, 2);
+      }
+    }
+
+    &-fake {
+      display: none;
+    }
+  }
+
+  &__photos {
+    $gap-column: $gap;
+    $gap-row: $gap;
+
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{getCols(1)}));
+    column-gap: $gap-column;
+    row-gap: $gap-row;
+
+    &-cell {
+      height: getRem(167px);
+
+      &:nth-child(1) {
+        @include getArea(2, 1, 1, 1);
+      }
+      &:nth-child(2) {
+        @include getArea(1, 2, 1, 1);
+      }
+      &:nth-child(3) {
+        @include getArea(2, 2, 1, 1);
+      }
+    }
+
+    &-fake {
+      display: none;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    min-height: getRem(744px);
+    object-fit: cover;
+    overflow: hidden;
+
+    border-radius: 0px getRem(16px) getRem(16px) getRem(16px);
+
+    &--small {
+      min-height: auto;
+
+      border-radius: getRem(8px);
+    }
+  }
+
+  &__content {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, auto) 1fr;
+
+    &-place {
+      $gaps: (20px, 20px, 60px, 20px, 115px);
+
+      $index: 2;
+      @each $gap in $gaps {
+        &:nth-child(#{$index}) {
+          margin-top: getRem($gap);
+        }
+
+        $index: $index + 1;
+      }
+
+      &:last-child {
+        align-self: end;
+      }
+    }
+  }
+
+  &__title {
+    &--main {
+      @include font(3);
+
+      font-size: getRem(130px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    &--sub {
+      @include font(5);
+
+      font-size: getRem(16px);
+      line-height: 1.3;
+    }
+
+    &--list {
+      @include font(2);
+
+      font-size: getRem(13px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{getCols(3)}));
+    column-gap: $gap;
+
+    &-place {
+      position: relative;
+      z-index: 0;
+
+      padding: getRem(30px) 0 0 getRem(30px);
+    }
+
+    &-icon {
+      @include getSize(getRem(21px));
+
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+
+      &::before,
+      &::after {
+        @include getSize(getRem(11px));
+
+        position: absolute;
+
+        content: "";
+
+        border-bottom: 1px solid var(--color-blue);
+        border-left: 1px solid var(--color-blue);
+        border-radius: 0 0 0 getRem(5px);
+      }
+      &::before {
+        top: 0;
+        right: 0;
+      }
+      &::after {
+        bottom: 0;
+        left: 0;
+        transform: rotate(180deg);
+      }
+    }
+
+    &-text {
+      @include font(5);
+
+      max-width: getRem(320px);
+
+      font-size: getRem(16px);
+      line-height: 1.3;
+    }
+  }
+}
+
+.tags {
+  $component: &;
+
+  $gap-column: getRem(8px);
+  $gap-row: getRem(8px);
+
+  &__grid {
+    margin-top: -$gap-row;
+    margin-left: -$gap-column;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-top: $gap-row;
+    margin-left: $gap-column;
+  }
+}
+
+.slider {
+  &__grid {
+    display: grid;
+    grid-template-columns: calc(#{getCols(6)}) calc(#{getCols(2)}) calc(
+        #{getCols(2)}
+      );
+    column-gap: calc(#{$col} + (#{$gap} * 2));
+  }
+}
+
+.slide {
+  $component: &;
+
+  display: block;
+
+  cursor: pointer;
+
+  &--large {
+    display: grid;
+    grid-template-columns: calc(#{getCols(4)}) calc(#{getCols(2)});
+    column-gap: $gap;
+
+    #{$component} {
+      &__image {
+        height: getRem(398px);
+      }
+
+      &__text {
+        font-size: getRem(20px);
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+
+    margin-bottom: getRem(16px);
+    width: 100%;
+    height: getRem(193px);
+    overflow: hidden;
+
+    border-radius: 0px 0px getRem(40px) 0px;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__label {
+    @include getSize(getRem(44px));
+
+    position: absolute;
+    $offset: getRem(20px);
+    bottom: $offset;
+    right: $offset;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-blue);
+    border-radius: 50%;
+  }
+  &__svg {
+    @include getSize(getRem(17px));
+  }
+
+  &__text {
+    @include font(2);
+
+    margin-top: getRem(16px);
+    font-size: getRem(14px);
+    line-height: 1.3;
+  }
+
+  $hor-gap: 10px;
+  $vert-gap: 10px;
+
+  &__grid {
+    margin-left: getRem(-$hor-gap);
+    margin-top: getRem(-$vert-gap);
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__place {
+    margin-left: getRem($hor-gap);
+    margin-top: getRem($vert-gap);
+  }
+
+  &__progress {
+    margin-right: getRem(20px);
+  }
+
+  &__cell {
+    display: none;
+  }
+}
+
+.tag {
+  $component: &;
+
+  display: flex;
+
+  &--active {
+    #{$component}__link {
+      background-color: var(--color-yellow);
+      border-color: var(--color-yellow);
+    }
+  }
+
+  &__link {
+    padding: getRem(7px) getRem(12px);
+
+    border: 1px solid var(--color-gray-light);
+    border-radius: getRem(6px);
+    font-size: getRem(12px);
+    line-height: 1.3;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &--tab {
+      @include font(2);
+
+      font-size: getRem(18px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    &--small {
+      @include font(4);
+    }
+  }
+}
+
+.progress {
+  $component: &;
+
+  display: flex;
+
+  &--large {
+    #{$component} {
+      &__current {
+        font-size: getRem(40px);
+      }
+      &__all {
+        font-size: getRem(16px);
+      }
+    }
+  }
+
+  &__text {
+    @include font(2);
+
+    line-height: 1;
+  }
+
+  &__current {
+    font-size: getRem(24px);
+    color: var(--color-blue);
+  }
+  &__all {
+    margin-left: getRem(12px);
+
+    font-size: getRem(12px);
+  }
+}
+
+.indent {
+  $component: &;
+
+  &--page {
+    &--main {
+      padding: getRem(180px) 0;
+
+      #{$component} {
+        &__section {
+          &:not(:first-child) {
+            margin-top: getRem(180px);
+          }
+        }
+
+        &__sub-section {
+          &:not(:first-child) {
+            margin-top: getRem(100px);
+          }
+        }
+      }
+    }
+
+    &--catalog {
+      #{$component} {
+        &__item {
+          margin-top: getRem(40px);
+
+          &--large {
+            margin-top: getRem(80px);
+          }
+        }
+      }
+    }
+
+    &--index {
+      #{$component} {
+        &__item {
+          margin-top: getRem(20px);
+
+          &--large {
+            margin-top: getRem(60px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+
+  &__place {
+    &:nth-child(odd) {
+      .product {
+        border-left: none;
+      }
+    }
+
+    &:nth-child(even) {
+      margin-left: -1px;
+
+      .product {
+        border-right: none;
+      }
+    }
+
+    &:not(:nth-child(-n + 2)) {
+      margin-top: -1px;
+    }
+  }
+}
+
+.product {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
+  padding: $pad;
+  display: block;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-2);
+
+  &:hover {
+    z-index: 1;
+
+    border-color: var(--color-blue);
+
+    #{$component} {
+      &__title {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__icon {
+    @include getSize(getRem(64px));
+
+    position: absolute;
+    bottom: $pad;
+    right: $pad;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: var(--color-blue);
+  }
+
+  &__svg {
+    @include getSize(getRem(18px));
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: calc(#{getCols(3)}) 1fr;
+    column-gap: $gap;
+  }
+
+  &__cell {
+    &--info {
+      padding-bottom: getRem(64px + 40px);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: getRem(552px);
+    min-height: 100%;
+    display: block;
+    object-fit: cover;
+    overflow: hidden;
+
+    border-radius: 0px getRem(16px) getRem(16px) 0px;
+  }
+
+  &__title {
+    @include font(3);
+
+    font-size: getRem(54px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__table {
+    margin-top: getRem(40px);
+
+    &-row {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: getRem(9px);
+      }
+    }
+
+    &-col {
+      width: calc(#{getCols(1)});
+      flex-shrink: 0;
+
+      &:not(:first-child) {
+        margin-left: $gap;
+      }
+    }
+
+    &-title {
+      @include font(4);
+
+      font-size: getRem(14px);
+      line-height: 1.3;
+    }
+
+    &-value {
+      @include font(2);
+
+      font-size: getRem(16px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__features {
+    margin-top: getRem(40px);
+  }
+
+  &__feature {
+    display: flex;
+
+    &-svg {
+      @include getSize(getRem(60px));
+
+      flex-shrink: 0;
+    }
+
+    &-text {
+      @include font(4);
+
+      margin-left: getRem(15px);
+      padding-top: getRem(20px);
+
+      font-size: getRem(14px);
+      line-height: 1.3;
+    }
+  }
+}
+
+.btn {
+  $component: &;
+
+  display: flex;
+
+  &__link {
+    $element: &;
+
+    &--variant {
+      &--default {
+        padding: getRem(18px);
+
+        background-color: var(--color-blue);
+        border: 1px solid var(--color-blue);
+        border-radius: getRem(8px);
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--color-white);
+          border-color: var(--color-blue);
+        }
+      }
+
+      &--text {
+        &:hover {
+          #{$component} {
+            &__text {
+              color: var(--color-blue);
+            }
+          }
+        }
+
+        #{$component} {
+          &__text {
+            @include font(1);
+
+            font-size: getRem(13px);
+            line-height: 1;
+            color: var(--color-white);
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &--filter {
+        padding: getRem(22px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          #{$component} {
+            &__text {
+              color: var(--color-blue);
+            }
+          }
+        }
+
+        #{$component} {
+          &__icon {
+            display: flex;
+          }
+
+          &__svg {
+            @include getSize(17px);
+          }
+
+          &__text {
+            margin-left: getRem(12px);
+          }
+        }
+      }
+
+      &--full {
+        width: 100%;
+      }
+
+      &--dark {
+        background-color: var(--color-black);
+        border: 1px solid var(--color-black);
+
+        &:hover {
+          background-color: var(--color-white);
+          border-color: var(--color-black);
+
+          #{$component} {
+            &__text {
+              color: var(--color-black);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.separator {
+  &--section {
+    padding-top: getRem(16px);
+
+    border-top: 1px solid var(--color-gray-2);
+  }
+}
+
+.aside {
+  &--gallery {
+    padding-top: getRem(40px);
+  }
+}
+
+.gallery {
+  @include getSize(100%);
+
+  display: grid;
+  grid-template-columns: calc(#{getCols(4)}) calc(#{getCols(2)});
+  grid-template-rows: repeat(2, calc((100% - #{$gap}) / 2));
+  column-gap: $gap;
+  row-gap: $gap;
+  user-select: none;
+
+  &__place {
+    &:nth-child(1) {
+      @include getArea(1, 1, 1, 2);
+    }
+
+    &:nth-child(2) {
+      @include getArea(2, 1, 1, 1);
+    }
+
+    &:nth-child(3) {
+      @include getArea(2, 2, 1, 1);
+    }
+  }
+
+  &__image {
+    @include getSize(100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background-color: var(--color-gray-1);
+    border: 1px solid var(--color-gray-1);
+    border-radius: getRem(16px);
+  }
+
+  &__img {
+    @include getSize(100%);
+
+    object-fit: cover;
+  }
+}
+
+.masks {
+  @include getSize(100%);
+
+  position: relative;
+  z-index: 0;
+
+  overflow: hidden;
+
+  border-radius: getRem(16px);
+
+  &__prev,
+  &__next {
+    position: absolute;
+    z-index: 2; // because swiper-wrapper z-index: 1
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__prev {
+    left: getRem(20px);
+  }
+
+  &__next {
+    right: getRem(20px);
+  }
+
+  &__image {
+    padding-right: calc(#{$gap});
+    width: calc(#{getCols(4)} + #{$gap});
+  }
+
+  &__img {
+    @include getSize(100%);
+
+    object-fit: cover;
+
+    border-radius: getRem(16px);
+  }
+
+  &__bullets {
+    position: absolute;
+    z-index: 2;
+    bottom: getRem(20px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    &-list {
+      padding: getRem(12px);
+      display: flex;
+
+      background-color: var(--color-white);
+      border-radius: getRem(12px);
+    }
+  }
+
+  &__bullet {
+    $border-radius: getRem(4px);
+
+    @include getSize(getRem(45px), getRem(56px));
+
+    position: relative;
+    z-index: 0;
+
+    margin: 0 !important; // reset swiper styles
+    display: flex;
+    overflow: hidden;
+
+    border-radius: $border-radius;
+    opacity: 1; // reset swiper styles
+
+    &::before {
+      position: absolute;
+      @include inset(0);
+
+      content: "";
+
+      border: 2px solid var(--color-blue);
+      border-radius: $border-radius;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    &.swiper-pagination-bullet-active {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: getRem(9px) !important;
+    }
+
+    &-img {
+      @include getSize(100%);
+
+      object-fit: cover;
+    }
+  }
+
+  .swiper {
+    @include getSize(100%);
+  }
+}

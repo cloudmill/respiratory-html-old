@@ -1,0 +1,60 @@
+include ./menu-button
+include ./button-link
+
+mixin header
+  header.header(data-header)
+    .header__block.header__block--border--bottom.container.header__grid
+      .header__grid-cell.header__row
+        .header__row-col.drop-link
+          a.drop-link__link(href="#")
+            span.drop-link__text.header__text
+              |ru
+            .drop-link__icon
+              +arrow-svg.drop-link__svg
+        .header__row-col.header__row-col--space.header__link
+          a.header__link-link.header__text(href="#")
+            |О компании
+      .header__grid-cell.header__link
+        a.header__link-link.header__text(href="#")
+          |Контроль качества
+      .header__grid-cell.header__row.header__row--grid
+        -
+          var items = [
+            'Работа у нас',
+            'Документация',
+            'Медиа-центр',
+          ]
+        each item in items
+          .header__row-col.header__link
+            a.header__link-link.header__text(href="#")
+              |#{item}
+      .header__grid-cell.header__row
+        .header__row-col.header__row-col--space.header__link
+          a.header__link-link.header__text(href="#")
+            |Где купить
+        .header__row-col.header__link
+          a.header__link-link.header__text(href="#")
+            |Контакты
+    .header__block.container.header__grid
+      .header__grid-cell.header__logo
+        a.header__logo-link(href="#")
+          +logo-svg.header__logo-svg
+      .header__grid-cell
+        +menu-button
+          |Продукция
+      .header__grid-cell.header__row.header__row--grid
+        .header__row-col.drop-link
+          a.drop-link__link(href="#")
+            span.drop-link__text.header__text.header__text--large
+              |Партнерам
+            .drop-link__icon.drop-link__icon--margin--large
+              +arrow-svg.drop-link__svg
+        .header__row-col.header__link
+          a.header__link-link.header__text.header__text--large(href="#")
+            |Потребителям
+        .header__row-col.header__search.header__search--align--right
+          a.header__search-link(href="#")
+            +search-svg.header__search-svg
+      .header__grid-cell.header__row.header__row--align--right
+        +button-link.button-link--in-header
+          |оформить заказ

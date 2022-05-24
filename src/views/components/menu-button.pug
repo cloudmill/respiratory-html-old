@@ -1,0 +1,14 @@
+mixin menu-button({ href } = {})
+  .menu-button
+    if (href)
+      a.menu-button__button(href=href)
+        .menu-button__icon
+          +menu-button-svg.menu-button__svg
+        .menu-button__text
+          block
+    else
+      .menu-button__button
+        .menu-button__icon
+          +menu-button-svg.menu-button__svg
+        .menu-button__text
+          block

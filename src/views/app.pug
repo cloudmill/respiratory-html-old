@@ -1,0 +1,18 @@
+doctype html
+
+include ./components/svg
+
+include ./components/header
+include ./components/footer
+
+html.html(lang='ru')
+  head
+    meta(charset="utf-8")
+    title= data.title
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body.body
+    block header
+      +header
+    block content
+    block footer
+      +footer

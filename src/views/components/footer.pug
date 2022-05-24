@@ -1,0 +1,71 @@
+mixin footer
+  footer.footer
+    .footer__row
+      each i in [1, 2]
+        a.footer__col.footer__phone(href="#")
+          .footer__phone-container
+            span.footer__phone-phone
+              |8 812 703-37-33
+            span.footer__phone-description
+              |Многоканальный
+            .footer__phone-icon
+              +phone-svg.footer__phone-svg
+    .footer__bottom
+      .container
+        .footer__email
+          a.footer__email-link(href="#")
+            |info@szpe.ru
+        .footer__grid
+          ul.footer__grid-place.footer__links
+            -
+              var items = [
+                'О компании',
+                'Контроль качества',
+                'Работа у нас',
+                'Документация',
+                'Медиа-центр',
+                'Контакты',
+              ]
+            each item in items
+              li.footer__links-item.footer__link
+                a.footer__link-link(href="#")
+                  |#{item}
+          ul.footer__grid-place.footer__links
+            -
+              var items = [
+                'Промышленным организациям',
+                'Медицинским учреждениям',
+                'Торговым организациям',
+                'Потребителям',
+                'Оформить заказ',
+                'Где купить',
+              ]
+            each item in items
+              li.footer__links-item.footer__link
+                a.footer__link-link(href="#")
+                  |#{item}
+          .footer__grid-place.footer__link
+            a.footer__link-link(href="#")
+              |Политика конфиденциальности
+          .footer__grid-place
+            ul.footer__shelf.footer__socials
+              li.footer__socials-item
+                a.footer__social(href="#")
+                  +facebook-svg.footer__social-svg.footer__social-svg--facebook
+              li.footer__socials-item
+                a.footer__social(href="#")
+                  +youtube-svg.footer__social-svg.footer__social-svg--youtube
+              li.footer__socials-item
+                a.footer__social(href="#")
+                  +vk-svg.footer__social-svg.footer__social-svg--vk
+            .footer__shelf.button-link
+              a.button-link__link(href="#")
+                span.button-link__text
+                  |корпоративный портал
+            .footer__shelf.footer__copyright
+              |© 2010-2021 ООО «Респираторный комплекс»
+            .footer__shelf.footer__shelf--small.footer__author
+              span.footer__author-text
+                |Сделано в&nbsp;
+              a.footer__author-link(href="#")
+                |CloudMill

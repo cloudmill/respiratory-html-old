@@ -1,0 +1,59 @@
+footer
+  footer__row
+    footer__col
+      phone-link
+        phone-link__container
+          phone-link__phone
+            |text
+          phone-link__description
+            |text
+          phone-link__icon
+            phone-link__svg svg
+    footer__col
+      phone-link
+        phone-link__container
+          phone-link__phone
+            |text
+          phone-link__description
+            |text
+          phone-link__icon
+            phone-link__svg svg
+  footer__bottom
+    container
+      email
+        email__link a href=#
+          |text
+      grid
+        grid__place links ul
+          links__item footer-link li
+            footer-link__link a href=#
+              |text
+          ...
+        grid__place links ul
+          links__item footer-link li
+            footer-link__link a href=#
+              |text
+          ...
+        grid__place
+          footer-link
+            footer-link__link a href=#
+              |text
+        grid__place
+          socials ul
+            socials-item li
+              social a href=#
+                social__svg svg
+            ...
+          shelf link-button
+            link-button__link a href=#
+              link-button__text span
+                |text
+              ::before
+              ::after
+          shelf copyright
+            |text
+          shelf shelf--small author
+            author__text span
+              |text
+            author__link a href=#
+              |text

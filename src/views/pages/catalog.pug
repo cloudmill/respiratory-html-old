@@ -1,0 +1,89 @@
+extends ../app
+
+block content
+  .indent.indent--page--catalog
+    .indent__item
+      .container
+        .wall
+          .wall__list
+            -
+              var items = [
+                'Главная',
+                'продукция',
+              ]
+            each item, index in items
+              if index < items.length - 1
+                .wall__item
+                  .badge
+                    a.badge__link.badge__link--variant--breadcrumb(href="#")
+                      |#{item}
+              else
+                .wall__item
+                  .badge
+                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
+                      |#{item}
+    .indent__item
+      .container
+        h1.title.title--page
+          |продукция
+    .indent__item.indent__item--large
+      .container
+        .row.row--filter
+          .row__col
+            .wall
+              .wall__list
+                -
+                  var items = [
+                    'Все',
+                    'RK 9000',
+                    'RK 6000',
+                    'АЛИНА®',
+                    'ЮЛИЯ®',
+                    'нева®',
+                    'GAGARA®',
+                  ]
+                each item, index in items
+                  .wall__item
+                    .badge
+                      if index === 1
+                        .badge__link.badge__link--variant--tab.badge__link--variant--tab-active(href="#")
+                          |#{item}
+                      else
+                        .badge__link.badge__link--variant--tab(href="#")
+                          |#{item}
+          .row__col
+            .btn
+              .btn__link.btn__link--variant--default.btn__link--variant--text.btn__link--variant--filter.btn__link--variant--full
+                .btn__icon
+                  +filter-svg.btn__svg
+                .btn__text
+                  |фильтры
+    .indent__item
+      .catalog
+        - for (let i = 0; i < 5; i++)
+          .catalog__place
+            a.product(href="#")
+              .product__grid
+                .product__cell
+                  img.product__img(src=`assets/images/photo-${i % 2 + 1}.jpg`)
+                .product__cell.product__cell--info
+                  h2.product__title
+                    |RK 9010
+                  .product__table
+                    .product__table-row.product__table-title
+                      .product__table-col
+                        |Класс защиты
+                      .product__table-col
+                        |Клапан выдоха
+                    .product__table-row.product__table-value
+                      .product__table-col
+                        |FFP1 R D
+                      .product__table-col
+                        |Нет
+                  .product__features
+                    .product__feature
+                      img.product__feature-svg(src="assets/images/svg/feature.svg")
+                      .product__feature-text
+                        |Защита от всех видов аэрозолей
+              .product__icon
+                +phone-svg.product__svg

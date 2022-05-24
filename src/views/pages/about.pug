@@ -1,0 +1,77 @@
+extends ../app
+
+block content
+  .brn
+    img.brn__bg(src="assets/images/about/image 76.jpg")
+    .container.brn__container
+      .lhqxmb.lhqxmb--okgqtd
+        .lhqxmb__list
+          -
+            var items = [
+              'Главная',
+            ]
+          each item in items
+            .lhqxmb__item
+              .dqnoxb.dqnoxb--hjdvot
+                a.dqnoxb__button(href="#")
+                  |#{item}
+          .lhqxmb__item
+            .dqnoxb.dqnoxb--hjdvot.dqnoxb--vjzfip
+              .dqnoxb__button
+                |О компании
+      h1.brn__title
+        |О компании
+  .taq
+    .container.taq__container
+      .taq__col
+        img.taq__img(src="assets/images/about/image 80.jpg")
+      .taq__col
+        .taq__content
+          h2.taq__title
+            |25+ лет
+          .taq__text
+            |специализируемся на разработке и производстве фильтрующих полумасок
+  .container
+    .kpu
+      p.article.article--small
+        |Развивая рынок качественной продукции, мы способствуем 
+        a.article__link(href="#")
+          |сохранению здоровья человека
+        |#{" "}в условиях загрязненной рабочей среды
+      .kpu__text
+        |Наши основные усилия направлены на повышение уровня комфорта и безопасности при работе в респираторе
+  .container
+    .kpu.kpu--second
+      .kpu__title
+        |Наше производство
+      .kpu__cards
+        .kpu__card
+          .kpu__card-title
+            |6500 м
+          .kpu__card-text
+            |Производственно-складской комплекс
+        .kpu__card
+          .kpu__card-title
+            |2
+          .kpu__card-text
+            |Собственные испытательные лаборатории
+        .kpu__card
+          .kpu__card-title
+            |500+
+          .kpu__card-text
+            |Сотрудников компании
+  .ywn
+    img.ywn__slider(src="assets/images/about/Z6F_5835 синий 1.jpg")
+    .ywn__controls
+      .amaqvj
+        .amaqvj__col
+          .ommfre.ommfre--rxljso(data-usgkhj-prev)
+            +venams-svg.ommfre__svg
+        .amaqvj__col
+          .ommfre.ommfre--rtluns.ommfre--rxljso(data-usgkhj-next)
+            +venams-svg.ommfre__svg
+      .progress
+        .progress__text.progress__current
+          |29
+        .progress__text.progress__all
+          |/11

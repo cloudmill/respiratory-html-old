@@ -1,0 +1,224 @@
+extends ../app
+
+block content
+  .gap.gap--section
+    .container
+      .separator.separator--section
+      .row.row--section
+        .row__col
+          h2.title.title--section
+            |Не просто производим
+        .row__col
+          p.article
+            |Помогаем выстраивать процессы и развивать культуру профессионального использования 
+            a.article__link(href="#")
+              |СИЗОД
+  .gap.gap--section
+    .container
+      .separator.separator--section
+      h2.title.title--section
+        |Условия сотрудничества
+      .cards.cards--margin
+        -
+          var items = [
+            'Промышленным предприятиям',
+            'Медицинским учреждениям',
+            'Торговым организациям',
+          ]
+        each item, index in items
+          .cards__item
+            a.card(href="#")
+              h3.card__title(class=(index > 0 ? 'card__title--dark' : ''))
+                |#{item}
+              .card__label
+                +phone-svg.card__label-svg
+              img.card__background(src=`assets/images/card-${index + 1}.jpg`)
+  .gap.gap--section
+    .container
+      .separator.separator--section
+      .products
+        .products__grid
+          .products__grid-cell.products__grid-cell--title
+            h2.title.title--section
+              |продукция
+          .products__grid-cell.products__grid-cell--tabs
+            .tags
+              .tags__grid
+                -
+                  var tabs = [
+                    'RK 9000',
+                    'RK 6000',
+                    'АЛИНА®',
+                    'ЮЛИЯ®',
+                    'НЕВА®',
+                    'GAGARA®',
+                  ]
+                each tab, index in tabs
+                  .tags__item
+                    .tag(class=(index === 0 ? 'tag--active' : ''))
+                      .tag__link.tag__link--tab
+                        |#{tab}
+          .products__grid-cell.products__grid-cell--content
+            .products__content
+              .products__content-place
+                .products__title.products__title--sub
+                  |Серия респираторов
+              .products__content-place
+                .products__title.products__title--main
+                  |RK 9000
+              .products__content-place
+                .products__features
+                  -
+                    var features = [
+                      'Классическая чашеобразная форма',
+                      'Внутри анатомической выемки усилитель для более плотного прилегания респиратора к лицевой части',
+                    ]
+                  each feature in features
+                    .products__features-place
+                      .products__features-icon
+                      .products__features-text
+                        |#{feature}
+              .products__content-place
+                .products__title.products__title--list
+                  |Защита от газов и паров
+              .products__content-place
+                .tags
+                  .tags__grid
+                    -
+                      var tabs = [
+                        'Органические газы и пары от нагрева металлов',
+                        'Сварочные аэрозоли, озон',
+                        'Кислые газы',
+                        'Неорганические газы',
+                        'Основные газы',
+                        'Вирусы и бактерии',
+                        'Радиоактивные и канцерогенные аэрозоли',
+                        'Радиоактивный йод',
+                      ]
+                    each tab, index in tabs
+                      .tags__item
+                        .tag
+                          .tag__link.tag__link--small
+                            |#{tab}
+              .products__content-place
+                +button-link.button-link--theme--color
+                  |Смотреть серию
+          .products__grid-cell.products__grid-cell--photos
+            .products__photos
+              - for (var i = 0; i < 3; i++)
+                .products__photos-cell
+                  img.products__photo.products__photo--small(src=`assets/images/tile-${i + 1}.jpg`)
+              -
+                var cols = 2;
+                var rows = 2;
+              - for (var i = 0; i < cols * rows; i++)
+                .products__photos-fake
+          .products__grid-cell.products__grid-cell--photo
+            img.products__photo(src="assets/images/photo.jpg")
+          -
+            var cols = 4
+            var rows = 2
+          - for (var i = 0; i < cols * rows; i++)
+            .products__grid-fake
+  .gap.gap--section
+    section.info
+      .container
+        h2.info__top
+          .info__title
+            |Используйте респиратор
+          .info__row
+            .info__col
+              .info__title
+                |для защиты
+            .info__col
+              .info__avatar
+                img.info__img(src="assets/images/avatar.jpg")
+          .info__title
+            |органов дыхания
+        .info__bottom
+          .info__article
+            |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+          +button-link.button-link--theme--color.info__button-link
+            |Информация для потребителей
+  .gap.gap--section
+    section.section
+      .container
+        .section__border.section__container.section__grid
+          - for (let i = 0; i < 4; i++)
+            .section__place
+          .section__aside
+            h2.title.title--section
+              |Медиа-центр
+          .section__main.section__row.section__row--space-between
+            .section__col
+              .buttons
+                .buttons__item.button
+                  +phone-svg.button__svg
+                .buttons__item.button.button--right
+                  +phone-svg.button__svg
+            .section__col
+              +button-link.button-link--theme--color
+                |все новости и статьи
+  .gap.gap--block
+    .slider
+      .container
+        .slider__grid
+          .slider__place
+            a.slide.slide--large(href="#")
+              .slide__image
+                img.slide__img(src="assets/images/slide-1.jpg")
+                .slide__label
+                  +phone-svg.slide__svg
+              .slide__bottom
+                .slide__grid
+                  .slide__place
+                    .progress.progress--large.slide__progress
+                      .progress__text.progress__current
+                        |29
+                      .progress__text.progress__all
+                        |/11
+                  .slide__place
+                    .tag
+                      .tag__link
+                        |Статьи
+                .slide__text
+                  |Пневмокониоз как результат воздействия производственной пыли на органы дыхания работников
+          .slider__place
+            a.slide(href="#")
+              .slide__image
+                img.slide__img(src="assets/images/slide-2.jpg")
+                .slide__label
+                  +phone-svg.slide__svg
+              .slide__grid
+                .slide__place
+                  .progress.slide__progress
+                    .progress__text.progress__current
+                      |15
+                    .progress__text.progress__all
+                      |/11
+                .slide__place
+                  .tag
+                    .tag__link
+                      |Новости
+              .slide__text
+                |Профилактика профессионального туберкулеза у медицинского персонала
+          .slider__place
+            a.slide(href="#")
+              .slide__image
+                img.slide__img(src="assets/images/slide-3.jpg")
+                .slide__label
+                  +phone-svg.slide__svg
+              .slide__grid
+                .slide__place
+                  .progress.slide__progress
+                    .progress__text.progress__current
+                      |10
+                    .progress__text.progress__all
+                      |/11
+                .slide__place
+                  .tag
+                    .tag__link
+                      |Жизнь компании
+              .slide__text
+                |Респираторный комплекс – итоги года
+  .gap.gap--bottom
